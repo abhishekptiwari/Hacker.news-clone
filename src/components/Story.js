@@ -15,15 +15,19 @@ export const Story = memo(function Story({ storyId }) {
   useEffect(() => {
     getStory(storyId).then(data => data && data.url && setStory(data));
   }, []);
-
+  let arr = story.url;
   return story && story.url ? (
     <StoryWrapper data-testid="story">
       <StoryTitle>
-        <a href={story.url}>{story.title}</a>
+        <a href={story.url}>{story.title} </a>
       </StoryTitle>
       <StoryMeta>
         <span data-testid="story-by">
-          <StoryMetaElement color="#000">By:</StoryMetaElement> {story.by}
+          {console.log(story.url.split("  ")[3])}
+          <StoryMetaElement color="#828282">site:</StoryMetaElement> ({arr.split("/")[2]})
+        </span>
+        <span data-testid="story-by">
+          <StoryMetaElement color="#000">By:</StoryMetaElement> {story.by}&nbsp;&nbsp;
         </span>
         <span data-testid="story-time">
           <StoryMetaElement color="#000">Posted:</StoryMetaElement> {` `}
