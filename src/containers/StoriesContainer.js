@@ -11,6 +11,8 @@ export const StoriesContainer = () => {
   const { count } = useInfiniteScroll();
   const [storyIds, setStoryIds] = useState([]);
 
+  
+  
   useEffect(() => {
     getStoryIds().then(data => setStoryIds(data));
   }, []);
